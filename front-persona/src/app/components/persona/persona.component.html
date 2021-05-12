@@ -1,0 +1,41 @@
+  
+<div class="alert alert-dark text-center" role="alert">
+  Módulo para la gestión de personas
+</div>
+
+<div class="row">
+  <div [formGroup]="form" class="col">
+    <input formControlName="nombre" class="form-control form-control-sm" type="text" placeholder="Consultar por nombre" aria-label=".form-control-sm example">
+  </div>
+  <div class="col-md-auto">
+    <button type="button" (click)="consultarPorNombre()" class="btn btn btn-dark">Consultar</button>
+  </div>
+  <div class="col col-lg-2">
+    <button type="button" class="btn btn btn-dark" (click)="go(null)">Crear persona</button>
+  </div>
+</div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Tipo documento</th>
+        <th scope="col">Número documento</th>
+        <th scope="col">Género</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of PERSONAS">
+        <td>{{p.nombre}}</td>
+        <td>{{p.apellido}}</td>
+        <td>{{p.tipoDocumento}}</td>
+        <td>{{p.numeroDocumento}}</td>
+        <td>{{p.genero}}</td>
+        <td>
+          <button (click)="go(p._id)" type="button" class="btn btn-link">Editar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

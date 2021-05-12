@@ -1,0 +1,38 @@
+<button routerLink="/inicio" type="button" class="btn btn-link">Volver</button>
+
+<div class="alert alert-dark text-center" role="alert">
+        A continuación puede crear  / actualizr una nueva persona:
+</div>
+<form [formGroup]="form">
+    <div class="row">
+        <div class="col-md-4">
+            <input formControlName='nombre' class="form-control" type="text" placeholder="Nombres" aria-label=" example">
+        </div>
+        <div class="col-md-4">
+            <input formControlName='apellido' class="form-control" type="text" placeholder="Apellidos" aria-label=" example">
+        </div>
+        <div class="col-md-4">
+            <select formControlName='tipoDocumento' class="form-select" aria-label="Tipo documento">
+                <option selected>Tipo documento</option>
+                <option value="CC">Cédula ciudadanía</option>
+                <option value="TI">Tarjeta de identidad</option>
+              </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <input  formControlName='numeroDocumento' class="form-control" type="number" placeholder="Número documento" aria-label=" example">
+        </div>
+        <div class="col-md-4">
+            <select formControlName='genero' class="form-select" aria-label="genero">
+                <option selected>Género</option>
+                <option value="M">Hombre</option>
+                <option value="F">Mujer</option>
+              </select>
+        </div>
+        <div class="col-md-4">
+             <button *ngIf="tipo === 0" type="button" (click)="crearPersona()" class="btn btn btn-dark">Guardar</button>
+             <button *ngIf="tipo === 1" type="button" (click)="actualizarPersona()" class="btn btn btn-dark">Actualizar</button>
+        </div>
+    </div>
+</form>
